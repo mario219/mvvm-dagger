@@ -62,10 +62,7 @@ dependencies {
 
     implementation libs.daggerAndroid
     implementation libs.daggerAndroidSupport
-    implementation libs.rxJava
-    implementation libs.rxAndroid
     implementation libs.retroFit
-    implementation libs.retroFitRxJava
     implementation libs.retroFitGson
     implementation libs.retroFitHttpInterceptor
 

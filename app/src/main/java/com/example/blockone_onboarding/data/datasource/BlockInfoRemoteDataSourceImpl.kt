@@ -5,7 +5,8 @@ import com.example.blockone_onboarding.data.model.remote.BlockInfoRemote
 import com.example.blockone_onboarding.data.service.BlockApi
 import com.example.blockone_onboarding.domain.datasource.BlockInfoRemoteDataSource
 import com.example.blockone_onboarding.domain.model.BlockInfo
-import io.reactivex.Single
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class BlockInfoRemoteDataSourceImpl @Inject constructor(
@@ -13,8 +14,10 @@ class BlockInfoRemoteDataSourceImpl @Inject constructor(
     private val mapper: BaseRemoteMapper<BlockInfoRemote, BlockInfo>
 ) : BlockInfoRemoteDataSource {
 
-    override fun getBlockInfo(): Single<BlockInfo> {
-        return blockApi.getBlockInfo()
-            .map { input -> mapper.transform(input) }
+    override suspend fun getBlockInfo(): BlockInfo {
+        val infoRemote = blockApi.getBlockInfo()
+        return withContext(Dispatchers.IO) {
+            mapper.transform(infoRemote)
+        }
     }
 }

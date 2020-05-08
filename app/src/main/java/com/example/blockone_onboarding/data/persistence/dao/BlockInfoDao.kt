@@ -8,7 +8,7 @@ import com.example.blockone_onboarding.data.model.local.BlockInfoLocal
 interface BlockInfoDao : BaseDao<BlockInfoLocal> {
 
     @Query("SELECT * FROM block_info")
-    fun getBlockInfo(): BlockInfoLocal
+    suspend fun getBlockInfo(): BlockInfoLocal
 
     @Query("DELETE FROM block_info")
     fun clean()

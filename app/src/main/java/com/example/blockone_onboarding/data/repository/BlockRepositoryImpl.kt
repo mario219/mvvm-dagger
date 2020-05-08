@@ -6,7 +6,6 @@ import com.example.blockone_onboarding.domain.datasource.BlockInfoRemoteDataSour
 import com.example.blockone_onboarding.domain.model.Block
 import com.example.blockone_onboarding.domain.model.BlockInfo
 import com.example.blockone_onboarding.domain.repository.BlockRepository
-import io.reactivex.Single
 import javax.inject.Inject
 
 class BlockRepositoryImpl @Inject constructor(
@@ -14,21 +13,17 @@ class BlockRepositoryImpl @Inject constructor(
     private val localDataSource: BlockInfoLocalDataSource
 ) : BlockRepository {
 
-    override fun getBlockInfo(): Single<BlockInfo> {
-        return dataSource.getBlockInfo()
-            .flatMap { blockInfo ->
-                localDataSource.saveBlockInfo(blockInfo)
-                Single.just(blockInfo)
-            }
+    override suspend fun getBlockInfo(): BlockInfo {
+        val blockInfo = dataSource.getBlockInfo()
+        localDataSource.saveBlockInfo(blockInfo)
+        return blockInfo
     }
 
-    override fun getBlock(): Single<Block> {
-        return Single.just(Block(EMPTY_STRING))
+    override suspend fun getBlock(): Block {
+        return Block(EMPTY_STRING)
     }
 
-    override fun getSavedBlockInfo(): Single<BlockInfo> {
-        return Single.fromCallable {
-            localDataSource.getBlockInfo()
-        }
+    override suspend fun getSavedBlockInfo(): BlockInfo {
+        return localDataSource.getBlockInfo()
     }
 }
