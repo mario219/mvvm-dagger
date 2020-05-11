@@ -11,5 +11,5 @@ interface BlockInfoDao : BaseDao<BlockInfoLocal> {
     suspend fun getBlockInfo(): BlockInfoLocal
 
     @Query("DELETE FROM block_info")
-    fun clean()
+    suspend fun clean()
 }

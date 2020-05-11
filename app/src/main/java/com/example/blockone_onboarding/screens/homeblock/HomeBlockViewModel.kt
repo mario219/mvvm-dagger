@@ -8,13 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.blockone_onboarding.domain.API_ERROR_MESSAGE_TAG
 import com.example.blockone_onboarding.domain.DB_ERROR_TAG
 import com.example.blockone_onboarding.domain.EMPTY_STRING
-import com.example.blockone_onboarding.domain.repository.BlockRepository
+import com.example.blockone_onboarding.domain.repository.BlockInfoRepository
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import javax.inject.Inject
 
 class HomeBlockViewModel @Inject constructor(
-    private val repository: BlockRepository
+    private val infoRepository: BlockInfoRepository
 ) : ViewModel() {
 
     private val _blockNumInfo = MutableLiveData<String>()
@@ -34,7 +34,7 @@ class HomeBlockViewModel @Inject constructor(
     private fun fetchBlockInfo() {
         viewModelScope.launch {
             try {
-                repository.getBlockInfo()
+                infoRepository.getBlockInfo()
             } catch (e: Exception) {
                 Log.e(API_ERROR_MESSAGE_TAG, e.toString())
             }
@@ -44,7 +44,7 @@ class HomeBlockViewModel @Inject constructor(
     private fun getHeadBlockNum() {
         viewModelScope.launch {
             try {
-                _blockNumInfo.value = repository.getSavedBlockInfo().headBlockNum.toString()
+                _blockNumInfo.value = infoRepository.getCachedBlockInfo().headBlockNum.toString()
             } catch (e: Exception) {
                 Log.e(DB_ERROR_TAG, e.toString())
             }
