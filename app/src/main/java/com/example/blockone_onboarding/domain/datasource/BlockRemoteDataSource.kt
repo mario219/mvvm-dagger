@@ -4,5 +4,5 @@ import com.example.blockone_onboarding.domain.model.Block
 
 interface BlockRemoteDataSource {
 
-    suspend fun getBlock(blockNumId: String): Block
+    suspend fun fetchBlock(blockNumId: String): Block
 }

@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "BLOCKONE_BASE_URL", "\"https://eos.greymass.com/\""
+        buildConfigField "String", "PREFS", "\"blockonePrefs\""
     }
 
     buildTypes {

@@ -4,15 +4,16 @@ import com.example.blockone_onboarding.data.model.remote.BlockInfoRemote
 import com.example.blockone_onboarding.data.model.remote.BlockRemote
 import com.example.blockone_onboarding.data.utils.API_PATH_BLOCK
 import com.example.blockone_onboarding.data.utils.API_PATH_BLOCK_INFO
-import com.example.blockone_onboarding.data.utils.BLOCK_ID
+import com.google.gson.JsonObject
+import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.POST
 
 interface BlockApi {
 
     @GET(API_PATH_BLOCK_INFO)
     suspend fun getBlockInfo(): BlockInfoRemote
 
-    @GET(API_PATH_BLOCK)
-    suspend fun getBlock(@Query(BLOCK_ID) blockNumId: String): BlockRemote
+    @POST(API_PATH_BLOCK)
+    suspend fun getBlock(@Body blockNumId: JsonObject): BlockRemote
 }

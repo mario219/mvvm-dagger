@@ -7,10 +7,32 @@ import javax.inject.Inject
 class BlockLocalMapper @Inject constructor() : BaseMapper<BlockLocal, Block> {
 
     override fun transform(input: BlockLocal): Block {
-        TODO("Not yet implemented")
+        return Block(
+            refBlockPrefix = input.refBlockPrefix,
+            previous = input.previous,
+            scheduleVersion = input.scheduleVersion,
+            confirmed = input.confirmed,
+            blockNum = input.blockNum,
+            producer = input.producer,
+            transactionMroot = input.transactionMroot,
+            id = input.id,
+            actionMroot = input.actionMroot,
+            timestamp = input.timestamp
+        )
     }
 
     override fun transformToEntity(input: Block): BlockLocal {
-        TODO("Not yet implemented")
+        return BlockLocal(
+            refBlockPrefix = input.refBlockPrefix,
+            previous = input.previous,
+            scheduleVersion = input.scheduleVersion,
+            confirmed = input.confirmed,
+            blockNum = input.blockNum,
+            producer = input.producer,
+            transactionMroot = input.transactionMroot,
+            id = input.id,
+            actionMroot = input.actionMroot,
+            timestamp = input.timestamp
+        )
     }
 }

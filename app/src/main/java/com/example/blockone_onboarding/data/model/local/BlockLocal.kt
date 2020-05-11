@@ -11,16 +11,16 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "block")
 data class BlockLocal(
     @PrimaryKey
+    @ColumnInfo(name = "block_num")
+    var blockNum: Int? = null,
     @ColumnInfo(name = "id")
     var id: String,
-    @ColumnInfo(name = "block_num")
-    var blockNum: String? = null,
     @ColumnInfo(name = "timestamp")
     var timestamp: String? = null,
     @ColumnInfo(name = "producer")
     var producer: String? = null,
     @ColumnInfo(name = "confirmed")
-    var confirmed: String? = null,
+    var confirmed: Int? = null,
     @ColumnInfo(name = "previous")
     var previous: String? = null,
     @ColumnInfo(name = "transaction_mroot")
@@ -28,7 +28,7 @@ data class BlockLocal(
     @ColumnInfo(name = "action_mroot")
     var actionMroot: String? = null,
     @ColumnInfo(name = "schedule_version")
-    var scheduleVersion: String? = null,
+    var scheduleVersion: Int? = null,
     @ColumnInfo(name = "ref_block_prefix")
-    var refBlockPrefix: String? = null
+    var refBlockPrefix: Long? = null
 )

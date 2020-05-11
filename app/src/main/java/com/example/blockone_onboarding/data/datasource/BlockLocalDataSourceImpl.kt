@@ -1,5 +1,6 @@
 package com.example.blockone_onboarding.data.datasource
 
+import androidx.paging.DataSource
 import com.example.blockone_onboarding.data.mapper.BlockLocalMapper
 import com.example.blockone_onboarding.data.persistence.dao.BlockDao
 import com.example.blockone_onboarding.domain.datasource.BlockLocalDataSource
@@ -13,10 +14,9 @@ class BlockLocalDataSourceImpl @Inject constructor(
     private val mapper: BlockLocalMapper
 ) : BlockLocalDataSource {
 
-    override suspend fun getBlocks(): Block {
-        val blockLocal = dao.getBlocks()
-        return withContext(Dispatchers.IO) {
-            mapper.transform(blockLocal)
+    override fun getBlocks(): DataSource.Factory<Int, Block> {
+        return dao.getBlocks().map {
+            mapper.transform(it)
         }
     }
 

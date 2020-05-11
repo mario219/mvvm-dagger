@@ -31,6 +31,7 @@ class ServiceFactory {
                 while (!response.isSuccessful && tryOuts < 3) {
                     Log.d(TAG, "intercept: timeout/connection failure, performing automatic retry ${(tryOuts + 1)}")
                     tryOuts++
+                    response.close()
                     response = chain.proceed(request)
                 }
                 response

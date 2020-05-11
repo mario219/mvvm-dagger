@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.example.blockone_onboarding.R
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -16,6 +17,12 @@ class BlockListFragment : DaggerFragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private val viewModel by viewModels<BlockListViewModel> { viewModelFactory }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val args: BlockListFragmentArgs by navArgs()
+        viewModel.startFetchingData(args.headBlockNum)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +35,6 @@ class BlockListFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.blockList
     }
 }

@@ -37,6 +37,10 @@ class HomeBlockFragment : DaggerFragment() {
         initViewListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.fetchBlockInfo()
+    }
 
     private fun initViewListeners() {
         viewModel.blockNumInfo.observe(viewLifecycleOwner, Observer {

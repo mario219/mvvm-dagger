@@ -1,5 +1,7 @@
 package com.example.blockone_onboarding.domain.model
 
+import com.example.blockone_onboarding.domain.DEFAULT_ID
+
 data class Block(
     val refBlockPrefix: Long? = null,
     val previous: String? = null,
@@ -8,7 +10,7 @@ data class Block(
     val blockNum: Int? = null,
     val producer: String? = null,
     val transactionMroot: String? = null,
-    val id: String? = null,
+    val id: String = DEFAULT_ID,
     val actionMroot: String? = null,
     val timestamp: String? = null
 )

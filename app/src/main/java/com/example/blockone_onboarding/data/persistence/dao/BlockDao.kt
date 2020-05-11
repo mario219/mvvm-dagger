@@ -9,7 +9,7 @@ import com.example.blockone_onboarding.data.model.local.BlockLocal
 interface BlockDao : BaseDao<BlockLocal> {
 
     @Query("SELECT * FROM block")
-    suspend fun getBlocks(): BlockLocal
+    fun getBlocks(): DataSource.Factory<Int, BlockLocal>
 
     @Query("DELETE FROM block")
     suspend fun clean()

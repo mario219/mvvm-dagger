@@ -24,14 +24,9 @@ class HomeBlockViewModel @Inject constructor(
     init {
         _blockNumInfo.value = EMPTY_STRING
         fetchBlockInfo()
-        getHeadBlockNum()
     }
 
-    fun retryFetchingBlockInfo() {
-        getHeadBlockNum()
-    }
-
-    private fun fetchBlockInfo() {
+    fun fetchBlockInfo() {
         viewModelScope.launch {
             try {
                 infoRepository.getBlockInfo()
@@ -39,9 +34,10 @@ class HomeBlockViewModel @Inject constructor(
                 Log.e(API_ERROR_MESSAGE_TAG, e.toString())
             }
         }
+        updateHeadBlockNum()
     }
 
-    private fun getHeadBlockNum() {
+    private fun updateHeadBlockNum() {
         viewModelScope.launch {
             try {
                 _blockNumInfo.value = infoRepository.getCachedBlockInfo().headBlockNum.toString()
@@ -49,5 +45,9 @@ class HomeBlockViewModel @Inject constructor(
                 Log.e(DB_ERROR_TAG, e.toString())
             }
         }
+    }
+
+    fun retryFetchingBlockInfo() {
+        updateHeadBlockNum()
     }
 }
