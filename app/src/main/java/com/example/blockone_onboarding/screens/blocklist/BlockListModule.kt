@@ -1,7 +1,7 @@
 package com.example.blockone_onboarding.screens.blocklist
 
 import androidx.lifecycle.ViewModel
-import com.example.blockone_onboarding.di.ViewModelBuilderModule
+import com.example.blockone_onboarding.screens.di.ViewModelBuilderModule
 import com.example.blockone_onboarding.domain.ViewModelKey
 import dagger.Binds
 import dagger.Module

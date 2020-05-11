@@ -1,15 +1,11 @@
 package com.example.blockone_onboarding.screens.di
 
 import com.example.blockone_onboarding.data.di.RepositoryModule
-import com.example.blockone_onboarding.di.ViewModelBuilderModule
 import com.example.blockone_onboarding.screens.MainActivity
 import com.example.blockone_onboarding.screens.blocklist.BlockListModule
 import com.example.blockone_onboarding.screens.homeblock.HomeBlockModule
 import dagger.Module
-import dagger.Provides
 import dagger.android.ContributesAndroidInjector
-import javax.inject.Singleton
-
 
 /**
  * Include here the fragmentModule set that integrates the host,
@@ -18,8 +14,7 @@ import javax.inject.Singleton
 @Module(includes = [
     HomeBlockModule::class,
     BlockListModule::class,
-    RepositoryModule::class,
-    FrameworkDependencies::class
+    RepositoryModule::class
 ])
 /**
  * Represent a consolidate of features or just a feature of the app
