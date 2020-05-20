@@ -6,7 +6,7 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.blockone_onboarding"
@@ -56,6 +56,8 @@ dependencies {
     implementation libs.androidxAnnotations
     implementation libs.androidxLegacySupport
     implementation libs.paging
+    implementation libs.pagingKtx
+    implementation libs.pagingRuntimeKtx
     implementation libs.lifecycleViewModelState
     implementation libs.lifecycleViewModelKtx
     implementation libs.lifecycleLiveDataKtx

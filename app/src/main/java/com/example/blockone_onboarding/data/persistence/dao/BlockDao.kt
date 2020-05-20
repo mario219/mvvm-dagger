@@ -8,7 +8,7 @@ import com.example.blockone_onboarding.data.model.local.BlockLocal
 @Dao
 interface BlockDao : BaseDao<BlockLocal> {
 
-    @Query("SELECT * FROM block")
+    @Query("SELECT * FROM block ORDER BY block_num DESC")
     fun getBlocks(): DataSource.Factory<Int, BlockLocal>
 
     @Query("DELETE FROM block")

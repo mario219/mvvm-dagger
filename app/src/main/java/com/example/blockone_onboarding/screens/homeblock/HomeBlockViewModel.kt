@@ -1,20 +1,20 @@
 package com.example.blockone_onboarding.screens.homeblock
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.blockone_onboarding.domain.API_ERROR_MESSAGE_TAG
-import com.example.blockone_onboarding.domain.DB_ERROR_TAG
 import com.example.blockone_onboarding.domain.EMPTY_STRING
-import com.example.blockone_onboarding.domain.repository.BlockInfoRepository
+import com.example.blockone_onboarding.domain.usecase.ClearBlocksUseCase
+import com.example.blockone_onboarding.domain.usecase.FetchBlockInfoUseCase
+import com.example.blockone_onboarding.domain.usecase.GetCachedBlockNumUseCase
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 class HomeBlockViewModel @Inject constructor(
-    private val infoRepository: BlockInfoRepository
+    private val fetchBlockInfoUseCase: FetchBlockInfoUseCase,
+    private val getCachedBlockNumUseCase: GetCachedBlockNumUseCase,
+    private val clearBlocksUseCase: ClearBlocksUseCase
 ) : ViewModel() {
 
     private val _blockNumInfo = MutableLiveData<String>()
@@ -26,28 +26,26 @@ class HomeBlockViewModel @Inject constructor(
         fetchBlockInfo()
     }
 
+    fun clearCachedData() {
+        viewModelScope.launch {
+            clearBlocksUseCase()
+        }
+    }
+
     fun fetchBlockInfo() {
         viewModelScope.launch {
-            try {
-                infoRepository.getBlockInfo()
-            } catch (e: Exception) {
-                Log.e(API_ERROR_MESSAGE_TAG, e.toString())
-            }
+            fetchBlockInfoUseCase()
         }
+        updateHeadBlockNum()
+    }
+
+    fun retryFetchingBlockInfo() {
         updateHeadBlockNum()
     }
 
     private fun updateHeadBlockNum() {
         viewModelScope.launch {
-            try {
-                _blockNumInfo.value = infoRepository.getCachedBlockInfo().headBlockNum.toString()
-            } catch (e: Exception) {
-                Log.e(DB_ERROR_TAG, e.toString())
-            }
+            _blockNumInfo.value = getCachedBlockNumUseCase()
         }
-    }
-
-    fun retryFetchingBlockInfo() {
-        updateHeadBlockNum()
     }
 }

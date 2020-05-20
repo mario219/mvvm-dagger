@@ -27,4 +27,8 @@ class BlockLocalDataSourceImpl @Inject constructor(
             }
         )
     }
+
+    override suspend fun deleteAllBlocks() {
+        dao.clean()
+    }
 }

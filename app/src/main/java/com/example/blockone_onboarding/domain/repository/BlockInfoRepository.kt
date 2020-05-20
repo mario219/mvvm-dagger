@@ -4,6 +4,6 @@ import com.example.blockone_onboarding.domain.model.BlockInfo
 
 interface BlockInfoRepository {
 
-    suspend fun getBlockInfo(): BlockInfo
-    suspend fun getCachedBlockInfo(): BlockInfo
+    suspend fun fetchBlockInfo()
+    suspend fun getCachedBlockInfo(): BlockInfo?
 }

@@ -5,6 +5,7 @@ import com.example.blockone_onboarding.domain.model.Block
 
 interface BlockRepository {
 
-    suspend fun startFetchingBlocks(blockNumId: String)
+    suspend fun fetchBlock(blockNumId: String): Block?
     fun loadCachedBlocks(): DataSource.Factory<Int, Block>
+    suspend fun clearFetchedBlocks()
 }
