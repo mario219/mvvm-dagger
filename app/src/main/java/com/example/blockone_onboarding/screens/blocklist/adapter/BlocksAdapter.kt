@@ -3,7 +3,7 @@ package com.example.blockone_onboarding.screens.blocklist.adapter
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.example.blockone_onboarding.domain.model.Block
+import com.example.domain.model.Block
 
 class BlocksAdapter : PagedListAdapter<Block, BlockViewHolder>(diffCallback){
 

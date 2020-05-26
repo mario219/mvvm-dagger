@@ -10,9 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.example.blockone_onboarding.databinding.BlockDetailFragmentBinding
-import com.example.blockone_onboarding.domain.model.Block
-import com.example.blockone_onboarding.util.hideActionBar
-import com.example.blockone_onboarding.util.showActionBar
+import com.example.blockone_onboarding.utils.hideActionBar
+import com.example.blockone_onboarding.utils.showActionBar
+import com.example.domain.model.Block
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 

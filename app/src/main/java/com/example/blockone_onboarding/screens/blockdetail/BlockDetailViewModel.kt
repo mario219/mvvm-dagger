@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.blockone_onboarding.domain.model.Block
-import com.example.blockone_onboarding.domain.usecase.GetBlockDetailUseCase
+import com.example.domain.model.Block
+import com.example.domain.usecase.GetBlockDetailUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

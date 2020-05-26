@@ -2,8 +2,6 @@ package com.example.blockone_onboarding.di
 
 import android.content.Context
 import com.example.blockone_onboarding.BlockOneApp
-import com.example.blockone_onboarding.screens.di.FrameworkDependencies
-import com.example.blockone_onboarding.screens.di.ScreensModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

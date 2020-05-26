@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.blockone_onboarding.databinding.BlockItemBinding
-import com.example.blockone_onboarding.domain.model.Block
 import com.example.blockone_onboarding.screens.blocklist.BlockListFragmentDirections
+import com.example.domain.model.Block
 
 class BlockViewHolder(
     private val binding: BlockItemBinding
