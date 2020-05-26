@@ -21,10 +21,6 @@ class BlockInfoLocalDataSourceImpl @Inject constructor(
     }
 
     override suspend fun saveBlockInfo(blockInfo: BlockInfo) {
-        dao.updateBlockInfo(
-            withContext(Dispatchers.IO) {
-                mapper.transformToEntity(blockInfo)
-            }
-        )
+        dao.updateBlockInfo(mapper.transformToEntity(blockInfo))
     }
 }

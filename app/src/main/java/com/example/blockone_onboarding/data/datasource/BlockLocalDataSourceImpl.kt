@@ -21,11 +21,7 @@ class BlockLocalDataSourceImpl @Inject constructor(
     }
 
     override suspend fun saveBlock(block: Block) {
-        dao.insert(
-            withContext(Dispatchers.IO) {
-                mapper.transformToEntity(block)
-            }
-        )
+        dao.insert(mapper.transformToEntity(block))
     }
 
     override suspend fun getBlockByNum(blockNum: Int): Block {
