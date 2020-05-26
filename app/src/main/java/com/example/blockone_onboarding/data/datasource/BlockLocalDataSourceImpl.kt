@@ -28,6 +28,13 @@ class BlockLocalDataSourceImpl @Inject constructor(
         )
     }
 
+    override suspend fun getBlockByNum(blockNum: Int): Block {
+        val blockLocal = dao.getBlockByNum(blockNum)
+        return withContext(Dispatchers.IO) {
+            mapper.transform(blockLocal)
+        }
+    }
+
     override suspend fun deleteAllBlocks() {
         dao.clean()
     }

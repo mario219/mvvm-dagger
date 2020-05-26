@@ -2,6 +2,7 @@ package com.example.blockone_onboarding.screens.di
 
 import com.example.blockone_onboarding.data.di.RepositoryModule
 import com.example.blockone_onboarding.screens.MainActivity
+import com.example.blockone_onboarding.screens.blockdetail.BlockDetailModule
 import com.example.blockone_onboarding.screens.blocklist.BlockListModule
 import com.example.blockone_onboarding.screens.homeblock.HomeBlockModule
 import dagger.Module
@@ -14,6 +15,7 @@ import dagger.android.ContributesAndroidInjector
 @Module(includes = [
     HomeBlockModule::class,
     BlockListModule::class,
+    BlockDetailModule::class,
     RepositoryModule::class
 ])
 /**

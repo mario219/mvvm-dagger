@@ -4,4 +4,12 @@
     <string name="fetch_button">Fetch</string>
     <string name="home_title">Home Block</string>
     <string name="list_title">Block list</string>
+    <string name="detail_info">Block Detail </string>
+
+    <string name="producer">Producer:\n %1$s</string>
+    <string name="block_num">Block #:\n %1$s</string>
+    <string name="timestamp">Timestamp: \n %1$s</string>
+    <string name="confirmed">Confirmed: \n %1$s</string>
+    <string name="transactionRoot">TransactionMRoot: \n %1$s</string>
+    <string name="previous">Previous: \n %1$s</string>
 </resources>

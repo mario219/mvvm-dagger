@@ -49,6 +49,7 @@ ext {
             daggerCompiler : "com.google.dagger:dagger-compiler:$daggerAndroidVersion",
             daggerAndroidProcessor : "com.google.dagger:dagger-android-processor:$daggerAndroidVersion",
             roomCompiler : "androidx.room:room-compiler:$roomVersion",
-            lifecycleCompiler : "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
+            lifecycleCompiler : "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion",
+            dataBinding : "com.android.databinding:compiler:$gradleVersion"
     ]
 }

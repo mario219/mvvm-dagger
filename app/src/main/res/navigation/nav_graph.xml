@@ -14,7 +14,6 @@
         <action
             android:id="@+id/action_fetch_blocks"
             app:destination="@id/block_list_dest" />
-
     </fragment>
 
     <fragment
@@ -28,6 +27,25 @@
             app:argType="string"
             android:defaultValue="0" />
 
+        <action
+            android:id="@+id/action_open_detail"
+            app:destination="@+id/block_detail_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/block_detail_dest"
+        android:name="com.example.blockone_onboarding.screens.blockdetail.BlockDetailFragment"
+        android:label="@string/detail_info"
+        tools:layout="@layout/block_detail_fragment">
+
+        <argument
+            android:name="blockNum"
+            app:argType="integer"
+            android:defaultValue="0" />
+
+        <action
+            android:id="@+id/action_close"
+            app:popUpTo="@id/block_list_dest" />
     </fragment>
 
 </navigation>

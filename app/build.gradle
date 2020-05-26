@@ -21,6 +21,10 @@ android {
         buildConfigField "String", "PREFS", "\"blockonePrefs\""
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -81,6 +85,8 @@ dependencies {
     implementation libs.roomRx
 
     kapt kaptLibs.roomCompiler
+
+    kapt kaptLibs.dataBinding
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -26,6 +26,10 @@ class BlockRepositoryImpl @Inject constructor(
         return block
     }
 
+    override suspend fun getBlockByNum(blockNum: Int): Block {
+        return localDataSource.getBlockByNum(blockNum)
+    }
+
     override fun loadCachedBlocks(): DataSource.Factory<Int, Block> {
         return localDataSource.getBlocks()
     }

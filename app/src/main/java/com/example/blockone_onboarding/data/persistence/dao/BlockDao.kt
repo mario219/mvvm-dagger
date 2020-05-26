@@ -13,4 +13,7 @@ interface BlockDao : BaseDao<BlockLocal> {
 
     @Query("DELETE FROM block")
     suspend fun clean()
+
+    @Query("SELECT * FROM block WHERE block_num = :blockNum LIMIT 1")
+    suspend fun getBlockByNum(blockNum: Int): BlockLocal
 }

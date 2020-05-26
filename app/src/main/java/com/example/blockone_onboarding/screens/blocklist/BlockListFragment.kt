@@ -26,7 +26,6 @@ class BlockListFragment : DaggerFragment() {
         super.onCreate(savedInstanceState)
         val args: BlockListFragmentArgs by navArgs()
         viewModel.startFetchingData(args.headBlockNum)
-
     }
 
     override fun onCreateView(
@@ -41,6 +40,9 @@ class BlockListFragment : DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recycler.adapter = adapter
-        viewModel.blockList.observe(viewLifecycleOwner, Observer(adapter::submitList))
+        viewModel.blockList.observe(
+            viewLifecycleOwner,
+            Observer(adapter::submitList)
+        )
     }
 }

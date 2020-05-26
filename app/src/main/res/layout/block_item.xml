@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="block"
+            type="com.example.blockone_onboarding.domain.model.Block" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/cardview_default_elevation">
+    android:paddingTop="@dimen/cardview_default_elevation" >
 
     <ImageView
         android:id="@+id/image"
@@ -22,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
-        android:text="@string/app_name"
+        android:text="@{block.producer}"
         android:textStyle="bold"
         android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/image"
@@ -34,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
-        android:text="@string/text_main_screen"
+        android:text="@{block.blockNum.toString()}"
         android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/image"
         app:layout_constraintTop_toBottomOf="@+id/text_producer" />
@@ -45,7 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
-        android:text="@string/fetch_button"
+        android:text="@{block.timestamp}"
         app:layout_constraintStart_toEndOf="@+id/image"
         app:layout_constraintTop_toBottomOf="@+id/text_block_num" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
