@@ -1,4 +1,4 @@
-package com.example.blockone_onboarding.screens.homeblock
+package com.example.blockone_onboarding.screens.blocklist
 
 import androidx.lifecycle.ViewModel
 import com.example.blockone_onboarding.screens.di.ViewModelBuilderModule
@@ -9,13 +9,13 @@ import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 @Module
-abstract class HomeBlockModule {
+abstract class BlockListModule {
 
     @ContributesAndroidInjector(modules = [ViewModelBuilderModule::class])
-    internal abstract fun homeBlockFragment(): HomeBlockFragment
+    internal abstract fun blockListFragment(): BlockListFragment
 
     @Binds
     @IntoMap
-    @ViewModelKey(HomeBlockViewModel::class)
-    abstract fun bindViewModel(viewModel: HomeBlockViewModel): ViewModel
+    @ViewModelKey(BlockListViewModel::class)
+    abstract fun bindViewModel(viewModel: BlockListViewModel): ViewModel
 }

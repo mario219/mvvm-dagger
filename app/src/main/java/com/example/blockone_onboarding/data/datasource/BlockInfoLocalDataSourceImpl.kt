@@ -14,12 +14,13 @@ class BlockInfoLocalDataSourceImpl @Inject constructor(
 ) : BlockInfoLocalDataSource {
 
     override suspend fun getBlockInfo(): BlockInfo {
+        val blockInfoLocal = dao.getHeadBlockNum()
         return withContext(Dispatchers.IO) {
-            mapper.transform(dao.getBlockInfo())
+            mapper.transform(blockInfoLocal)
         }
     }
 
     override suspend fun saveBlockInfo(blockInfo: BlockInfo) {
-        dao.insert(mapper.transformToEntity(blockInfo))
+        dao.updateBlockInfo(mapper.transformToEntity(blockInfo))
     }
 }

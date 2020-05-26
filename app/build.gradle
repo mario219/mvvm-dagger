@@ -6,7 +6,7 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.blockone_onboarding"
@@ -18,6 +18,11 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "BLOCKONE_BASE_URL", "\"https://eos.greymass.com/\""
+        buildConfigField "String", "PREFS", "\"blockonePrefs\""
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     buildTypes {
@@ -42,23 +47,26 @@ def kaptLibs = rootProject.ext.kaptDependencies
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
-    implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation "androidx.cardview:cardview:$cardVersion"
-    implementation "com.google.android.material:material:$materialVersion"
-    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
-    implementation "androidx.annotation:annotation:$androidXAnnotations"
-    implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
+    implementation libs.appCompact
+    implementation libs.androidxCore
+    implementation libs.constraintLayout
+    implementation libs.cardView
+    implementation libs.material
+    implementation libs.recyclerView
+    implementation libs.fragmentKtx
+    implementation libs.navigationFragmentKtx
+    implementation libs.navigationUiKtx
+    implementation libs.androidxAnnotations
+    implementation libs.androidxLegacySupport
+    implementation libs.paging
+    implementation libs.pagingKtx
+    implementation libs.pagingRuntimeKtx
+    implementation libs.lifecycleViewModelState
+    implementation libs.lifecycleViewModelKtx
+    implementation libs.lifecycleLiveDataKtx
 
-    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    kapt kaptLibs.lifecycleCompiler
 
     implementation libs.daggerAndroid
     implementation libs.daggerAndroidSupport
@@ -77,6 +85,8 @@ dependencies {
     implementation libs.roomRx
 
     kapt kaptLibs.roomCompiler
+
+    kapt kaptLibs.dataBinding
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

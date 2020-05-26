@@ -2,8 +2,8 @@ package com.example.blockone_onboarding.di
 
 import android.content.Context
 import com.example.blockone_onboarding.BlockOneApp
-import com.example.blockone_onboarding.data.di.BlockRepositoryModule
-import com.example.blockone_onboarding.screens.homeblock.HomeBlockModule
+import com.example.blockone_onboarding.screens.di.FrameworkDependencies
+import com.example.blockone_onboarding.screens.di.ScreensModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -14,8 +14,9 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        BlockRepositoryModule::class,
-        HomeBlockModule::class])
+        FrameworkDependencies::class,
+        ScreensModule::class
+    ])
 interface ApplicationComponent : AndroidInjector<BlockOneApp> {
 
     @Component.Factory

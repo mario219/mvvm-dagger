@@ -1,4 +1,4 @@
-package com.example.blockone_onboarding.di
+package com.example.blockone_onboarding.screens.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

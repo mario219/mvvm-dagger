@@ -1,11 +1,12 @@
 package com.example.blockone_onboarding.domain.repository
 
+import androidx.paging.DataSource
 import com.example.blockone_onboarding.domain.model.Block
-import com.example.blockone_onboarding.domain.model.BlockInfo
 
 interface BlockRepository {
 
-    suspend fun getBlockInfo(): BlockInfo
-    suspend fun getBlock(): Block
-    suspend fun getSavedBlockInfo(): BlockInfo
+    suspend fun fetchBlock(blockNumId: String): Block?
+    suspend fun getBlockByNum(blockNum: Int): Block
+    fun loadCachedBlocks(): DataSource.Factory<Int, Block>
+    suspend fun clearFetchedBlocks()
 }

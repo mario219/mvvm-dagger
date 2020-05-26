@@ -23,6 +23,11 @@ class HomeBlockFragment : DaggerFragment() {
 
     private val viewModel by viewModels<HomeBlockViewModel> { viewModelFactory }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.clearCachedData()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,6 +42,15 @@ class HomeBlockFragment : DaggerFragment() {
         initViewListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.fetchBlockInfo()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.clearCachedData()
+    }
 
     private fun initViewListeners() {
         viewModel.blockNumInfo.observe(viewLifecycleOwner, Observer {
