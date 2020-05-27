@@ -70,8 +70,22 @@ dependencies {
     implementation libs.lifecycleLiveDataKtx
 
     kapt kaptLibs.lifecycleCompiler
-
     kapt kaptLibs.dataBinding
+
+    implementation libs.room
+    implementation libs.roomKtx
+    implementation libs.roomRx
+
+    kapt kaptLibs.roomCompiler
+
+    implementation libs.daggerAndroid
+    implementation libs.daggerAndroidSupport
+
+    kapt kaptLibs.daggerCompiler,
+            kaptLibs.daggerAndroidProcessor
+
+    annotationProcessor kaptLibs.daggerCompiler,
+            kaptLibs.daggerAndroidProcessor
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
