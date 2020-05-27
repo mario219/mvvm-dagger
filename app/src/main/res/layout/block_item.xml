@@ -6,7 +6,7 @@
     <data>
         <variable
             name="block"
-            type="com.example.blockone_onboarding.domain.model.Block" />
+            type="com.example.domain.model.Block" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

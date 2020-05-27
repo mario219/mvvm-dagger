@@ -17,7 +17,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "BLOCKONE_BASE_URL", "\"https://eos.greymass.com/\""
         buildConfigField "String", "PREFS", "\"blockonePrefs\""
     }
 
@@ -36,6 +35,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
     }
@@ -47,6 +47,9 @@ def kaptLibs = rootProject.ext.kaptDependencies
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation project (":data")
+    implementation project (":domain")
 
     implementation libs.appCompact
     implementation libs.androidxCore
@@ -67,18 +70,7 @@ dependencies {
     implementation libs.lifecycleLiveDataKtx
 
     kapt kaptLibs.lifecycleCompiler
-
-    implementation libs.daggerAndroid
-    implementation libs.daggerAndroidSupport
-    implementation libs.retroFit
-    implementation libs.retroFitGson
-    implementation libs.retroFitHttpInterceptor
-
-    kapt kaptLibs.daggerCompiler,
-            kaptLibs.daggerAndroidProcessor
-
-    annotationProcessor kaptLibs.daggerCompiler,
-            kaptLibs.daggerAndroidProcessor
+    kapt kaptLibs.dataBinding
 
     implementation libs.room
     implementation libs.roomKtx
@@ -86,7 +78,14 @@ dependencies {
 
     kapt kaptLibs.roomCompiler
 
-    kapt kaptLibs.dataBinding
+    implementation libs.daggerAndroid
+    implementation libs.daggerAndroidSupport
+
+    kapt kaptLibs.daggerCompiler,
+            kaptLibs.daggerAndroidProcessor
+
+    annotationProcessor kaptLibs.daggerCompiler,
+            kaptLibs.daggerAndroidProcessor
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.blockone_onboarding.domain.EMPTY_STRING
-import com.example.blockone_onboarding.domain.usecase.ClearBlocksUseCase
-import com.example.blockone_onboarding.domain.usecase.FetchBlockInfoUseCase
-import com.example.blockone_onboarding.domain.usecase.GetCachedBlockNumUseCase
+import com.example.domain.utils.EMPTY_STRING
+import com.example.domain.usecase.ClearBlocksUseCase
+import com.example.domain.usecase.FetchBlockInfoUseCase
+import com.example.domain.usecase.GetCachedBlockNumUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

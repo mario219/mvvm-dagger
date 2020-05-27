@@ -32,7 +32,7 @@ ext {
             lifecycleViewModelState : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion",
             lifecycleViewModelKtx : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
             lifecycleLiveDataKtx : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
-            paging : "android.arch.paging:runtime:$pagingVersion",
+            paging : "androidx.paging:paging-runtime:$pagingVersion",
             pagingKtx : "androidx.paging:paging-common:$pagingVersion",
             pagingRuntimeKtx : "androidx.paging:paging-runtime-ktx:$pagingVersion",
             retroFit : "com.squareup.retrofit2:retrofit:$retrofitVersion",

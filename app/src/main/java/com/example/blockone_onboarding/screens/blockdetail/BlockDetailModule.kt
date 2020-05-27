@@ -1,8 +1,8 @@
 package com.example.blockone_onboarding.screens.blockdetail
 
 import androidx.lifecycle.ViewModel
-import com.example.blockone_onboarding.domain.ViewModelKey
-import com.example.blockone_onboarding.screens.di.ViewModelBuilderModule
+import com.example.blockone_onboarding.di.ViewModelBuilderModule
+import com.example.blockone_onboarding.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

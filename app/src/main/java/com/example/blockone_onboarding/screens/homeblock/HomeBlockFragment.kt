@@ -11,8 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.blockone_onboarding.R
-import com.example.blockone_onboarding.domain.EMPTY_STRING
-import com.example.blockone_onboarding.util.MSG_ERROR_BTN_HOME
+import com.example.blockone_onboarding.utils.MSG_ERROR_BTN_HOME
+import com.example.domain.utils.EMPTY_STRING
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
