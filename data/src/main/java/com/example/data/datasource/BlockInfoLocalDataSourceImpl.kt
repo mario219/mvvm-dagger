@@ -1,6 +1,7 @@
 package com.example.data.datasource
 
-import com.example.data.mapper.BlockInfoLocalMapper
+import com.example.data.mapper.BaseMapper
+import com.example.data.model.local.BlockInfoLocal
 import com.example.data.persistence.dao.BlockInfoDao
 import com.example.domain.datasource.BlockInfoLocalDataSource
 import com.example.domain.model.BlockInfo
@@ -10,7 +11,7 @@ import javax.inject.Inject
 
 internal class BlockInfoLocalDataSourceImpl @Inject constructor(
     private val dao: BlockInfoDao,
-    private val mapper: BlockInfoLocalMapper
+    private val mapper: BaseMapper<BlockInfoLocal, BlockInfo>
 ) : BlockInfoLocalDataSource {
 
     override suspend fun getBlockInfo(): BlockInfo {

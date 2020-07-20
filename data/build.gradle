@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.apollographql.apollo'
 
 android {
     compileSdkVersion 29
@@ -17,6 +18,10 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
 
         buildConfigField "String", "BLOCKONE_BASE_URL", "\"https://eos.greymass.com/\""
+
+        apollo {
+            generateKotlinModels.set(true)
+        }
     }
 
     buildTypes {
@@ -53,6 +58,7 @@ dependencies {
     implementation libs.retroFit
     implementation libs.retroFitGson
     implementation libs.retroFitHttpInterceptor
+    implementation libs.apollo
 
     kapt kaptLibs.daggerCompiler,
             kaptLibs.daggerAndroidProcessor
@@ -65,6 +71,9 @@ dependencies {
     implementation libs.roomRx
 
     kapt kaptLibs.roomCompiler
+
+    compileOnly "org.jetbrains:annotations:13.0"
+    testCompileOnly "org.jetbrains:annotations:13.0"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

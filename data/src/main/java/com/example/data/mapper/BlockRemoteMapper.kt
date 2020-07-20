@@ -1,6 +1,6 @@
 package com.example.data.mapper
 
-import com.example.blockone_onboarding.data.model.remote.BlockRemote
+import com.example.data.model.remote.BlockRemote
 import com.example.domain.utils.DEFAULT_ID
 import com.example.domain.model.Block
 import javax.inject.Inject

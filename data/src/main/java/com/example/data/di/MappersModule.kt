@@ -9,7 +9,7 @@ import com.example.data.mapper.BlockRemoteMapper
 import com.example.data.model.local.BlockInfoLocal
 import com.example.data.model.local.BlockLocal
 import com.example.blockone_onboarding.data.model.remote.BlockInfoRemote
-import com.example.blockone_onboarding.data.model.remote.BlockRemote
+import com.example.data.model.remote.BlockRemote
 import com.example.domain.model.Block
 import com.example.domain.model.BlockInfo
 import dagger.Binds

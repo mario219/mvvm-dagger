@@ -1,4 +1,4 @@
-package com.example.blockone_onboarding.data.model.remote
+package com.example.data.model.remote
 
 import com.google.gson.annotations.SerializedName
 

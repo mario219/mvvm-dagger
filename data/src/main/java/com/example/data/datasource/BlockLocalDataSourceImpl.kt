@@ -1,7 +1,9 @@
 package com.example.data.datasource
 
 import androidx.paging.DataSource
+import com.example.data.mapper.BaseMapper
 import com.example.data.mapper.BlockLocalMapper
+import com.example.data.model.local.BlockLocal
 import com.example.data.persistence.dao.BlockDao
 import com.example.domain.datasource.BlockLocalDataSource
 import com.example.domain.model.Block
@@ -11,7 +13,7 @@ import javax.inject.Inject
 
 internal class BlockLocalDataSourceImpl @Inject constructor(
     private val dao: BlockDao,
-    private val mapper: BlockLocalMapper
+    private val mapper: BaseMapper<BlockLocal, Block>
 ) : BlockLocalDataSource {
 
     override fun getBlocks(): DataSource.Factory<Int, Block> {

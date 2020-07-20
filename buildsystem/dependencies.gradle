@@ -35,6 +35,7 @@ ext {
             paging : "androidx.paging:paging-runtime:$pagingVersion",
             pagingKtx : "androidx.paging:paging-common:$pagingVersion",
             pagingRuntimeKtx : "androidx.paging:paging-runtime-ktx:$pagingVersion",
+            apollo : "com.apollographql.apollo:apollo-runtime:$apolloVersion",
             retroFit : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retroFitGson : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             retroFitHttpInterceptor : "com.squareup.okhttp3:logging-interceptor:$httpLoggingInterceptorVersion",
